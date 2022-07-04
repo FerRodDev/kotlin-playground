@@ -3,18 +3,17 @@ package com.FerRodDev
 fun main(args: Array<String>) {
 
 
-    val errorList = listOf(
-        Error("Request was successfully", ErrorStatus.Success),
-        Error("Something failed", ErrorStatus.InternalServerError)
+    val responses = listOf(
+        Response("Request was successfully", Status.Success), Response("Something failed", Status.Error)
 
     )
 
-    errorList.forEach { error ->
+    responses.forEach { res ->
 
-        when (error.status) {
+        when (res.status) {
 
-            ErrorStatus.Success -> println(error.message)
-            ErrorStatus.InternalServerError -> println(error.message)
+            Status.Success -> println(res.message)
+            Status.Error -> println(res.message)
 
         }
     }
